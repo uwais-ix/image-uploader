@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply container min-h-screen mx-auto box-border m-0 p-0 bg-[#fafafb] flex items-center justify-center font-poppins;
+  }
+}
+
+.loader {
+  animation: cycle 3s linear infinite;
+}
+
+@keyframes cycle {
+  0% {
+    width: 0;
+    transform: translateX(0%);
+  }
+
+  25% {
+    width: 25%;
+  }
+
+
+  100% {
+    width: 20%;
+    transform: translateX(400%);
+  }
+}
