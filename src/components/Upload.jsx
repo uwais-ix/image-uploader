@@ -60,9 +60,17 @@ const Upload = ({imageUploadHandler}) => {
 
           <span className='mt-4 text-xs text-slate-300'>Or</span>
           {!imageActive ? (
-            <Button onClick={onImageUpload}>Choose File</Button>
+            <Button
+              className='mt-7'
+              onClick={onImageUpload}
+            >
+              Choose File
+            </Button>
           ) : (
-            <Button onClick={() => imageUploadHandler(image[0])}>
+            <Button
+              className='mt-7'
+              onClick={() => imageUploadHandler(image[0])}
+            >
               Upload
             </Button>
           )}

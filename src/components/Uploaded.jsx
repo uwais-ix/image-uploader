@@ -7,7 +7,7 @@ const Uploaded = ({imageData}) => {
   return (
     <Card className='flex flex-col items-center py-9 px-8'>
       <MdDone className='text-4xl text-white rounded-full bg-green-600' />
-      <h1 className='text-lg font-medium mt-3'>Uploaded Successfully!</h1>
+      <h1 className='text-xl font-medium mt-3'>Uploaded Successfully!</h1>
       <img
         src={imageData.data_url}
         alt=''
