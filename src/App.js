@@ -11,12 +11,9 @@ function App() {
 
   const imageUploadHandler = async (file) => {
     setUploadStatus('uploading');
-    // upload img to backend + get url ref
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    const url = await uploadImage(file);
-    console.log(url);
+    const url = await uploadImage(file.file);
     setUploadStatus('uploaded');
-    setImage({file, url});
+    setImage({data_url: file.data_url, url});
   };
 
   // upload state

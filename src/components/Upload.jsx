@@ -62,7 +62,7 @@ const Upload = ({imageUploadHandler}) => {
           {!imageActive ? (
             <Button onClick={onImageUpload}>Choose File</Button>
           ) : (
-            <Button onClick={() => imageUploadHandler(image[0].file)}>
+            <Button onClick={() => imageUploadHandler(image[0])}>
               Upload
             </Button>
           )}
