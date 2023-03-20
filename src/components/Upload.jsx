@@ -2,8 +2,9 @@ import {useState} from 'react';
 import ReactImageUploading from 'react-images-uploading';
 import Card from '../UI/Card';
 import {SlClose} from 'react-icons/sl';
+import Button from '../UI/Button';
 
-const Upload = () => {
+const Upload = ({imageUploadHandler}) => {
   const [image, setImage] = useState([]);
 
   const onChange = (imageList) => {
@@ -42,7 +43,7 @@ const Upload = () => {
             <img
               src={image[0]?.data_url || 'image.svg'}
               alt=''
-              className={imageActive && 'object-contain h-full w-full'}
+              className={imageActive ? '' : 'object-contain h-full w-full'}
             />
             {!imageActive && (
               <span className='mt-9 text-slate-400 opacity-95 text-xs'>
@@ -58,12 +59,13 @@ const Upload = () => {
           </div>
 
           <span className='mt-4 text-xs text-slate-300'>Or</span>
-          <button
-            className='px-4 py-2 font-notoSans font-medium text-xs text-white bg-blue-500 rounded-lg mt-7 hover:opacity-95 outline-none transition duration-300 hover:scale-105'
-            onClick={onImageUpload}
-          >
-            Choose a file
-          </button>
+          {!imageActive ? (
+            <Button onClick={onImageUpload}>Choose File</Button>
+          ) : (
+            <Button onClick={() => imageUploadHandler(image[0].file)}>
+              Upload
+            </Button>
+          )}
         </Card>
       )}
     </ReactImageUploading>
