@@ -3,19 +3,20 @@ import Uploading from './components/Uploading';
 import Uploaded from './components/Uploaded';
 import {useState} from 'react';
 import {motion} from 'framer-motion';
+import uploadImage from './api/uploadImage';
 
 function App() {
   const [uploadStatus, setUploadStatus] = useState('');
   const [image, setImage] = useState('');
 
-  const imageUploadHandler = async (dataURL) => {
-    if (dataURL) {
-      setUploadStatus('uploading');
-      // upload img to backend + get url ref
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setUploadStatus('uploaded');
-      setImage({img: dataURL, link: 'https://draft.com'});
-    }
+  const imageUploadHandler = async (file) => {
+    setUploadStatus('uploading');
+    // upload img to backend + get url ref
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const url = await uploadImage(file);
+    console.log(url);
+    setUploadStatus('uploaded');
+    setImage({file, url});
   };
 
   // upload state

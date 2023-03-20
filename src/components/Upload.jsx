@@ -43,7 +43,7 @@ const Upload = ({imageUploadHandler}) => {
             <img
               src={image[0]?.data_url || 'image.svg'}
               alt=''
-              className={imageActive ? '' : 'object-contain h-full w-full'}
+              className={!imageActive ? '' : 'object-contain h-full w-full'}
             />
             {!imageActive && (
               <span className='mt-9 text-slate-400 opacity-95 text-xs'>
